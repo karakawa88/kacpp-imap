@@ -13,6 +13,6 @@ MAIL=""
 #HOME=""
 
 #logrotate
-45 4 * * *  root /usr/sbin/logrotate /etc/logrotate.conf
+35 5 * * *  root /usr/sbin/logrotate /etc/logrotate.conf
 
 

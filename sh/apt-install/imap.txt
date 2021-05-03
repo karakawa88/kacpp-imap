@@ -1,0 +1,15 @@
+#systemd
+systemd
+# rsyslog
+rsyslog
+# PostgreSQL
+libpq5
+libpqxx-6.2
+# MySQL
+default-mysql-client
+# dovecot
+libdb5.3
+libdb5.3++
+# SSL CA証明書
+ca-certificates
+

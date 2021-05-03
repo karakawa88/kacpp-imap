@@ -16,6 +16,6 @@ MAIL=""
 30 3 * * *  root /bin/apt update
 10 5 * * 0 root /bin/apt upgrade
 # apt clean
-34 1 * * * root /bin/apt clean && rm -rf /var/lib/apt/lists/* 
+34 1 * * * root /bin/apt clean
 
 

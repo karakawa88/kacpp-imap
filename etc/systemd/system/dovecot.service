@@ -1,0 +1,15 @@
+[Unit]
+Description=IMAP POP3 Server Dovecot
+Documentation=man:dovecot(8) man:dovecot.conf(5)
+After=network.target
+#Before=
+
+[Service]
+ExecStart=/usr/local/sbin/dovecot -c /usr/local/etc/dovecot/dovecot.conf
+ExecStop=/usr/local/sbin/dovecot stop
+ExecReload=/usr/local/sbin/dovecot reload
+Restart=no
+Type=forking
+
+[Install]
+WantedBy=multi-user.target
