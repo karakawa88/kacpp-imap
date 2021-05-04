@@ -4,8 +4,8 @@ version: "3"
 
 services:
     kacpp-mail:
-        image: kagalpandh/kacpp-smtp
-        container_name: kacpp-smtp
+        image: kagalpandh/kacpp-imap
+        container_name: kacpp-imap
         volumes:
             - /home/local_etc:/usr/local/etc
             - /home:/home/mail_users
@@ -13,14 +13,13 @@ services:
         networks:
             - kaawsnet
         ports:
-            - "25:25"
-            - "465:465"
-            - "587:587"
+            - "993:993"
+            - "995:995"
         cap_add:
             - SYS_ADMIN
         privileged: true
         restart: always
-        env_file: kacpp-smtp.src
+        env_file: kacpp-imap.src
 #         environment:
 #             PGDATA: /home/data/db/pgdata
 networks:

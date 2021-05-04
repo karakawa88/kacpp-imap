@@ -66,6 +66,11 @@ RUN         apt update && \
             groupadd -g ${DOVECOT_GID} ${DOVECOT_GROUP} && \
                 useradd -u ${DOVECOT_UID} -s /bin/false -d /dev/null -g ${DOVECOT_GROUP} \
                     -G "${DOVECOT_GROUP}" ${DOVECOT_USER} && \
+                # なぜかdovecotのライブラリは/usr/local/lib/dovecotにあり
+                # 起動の時ライブラリを読み込めないので手動で設定
+                echo "/usr/local/lib/dovecot" >>/etc/ld.so.conf && ldconfig && \
+                # プログラムが/usr/local/dovecot-xxxx/binのプログラムを参照しているためリンクでごまかす
+                ln -s /usr/local /usr/local/${DOVECOT_DEST} && \
             #systemdの設定
             # ENTRYPOINTとクリーンアップ
             chmod 775 /usr/local/sh/system/*.sh && \
@@ -83,4 +88,4 @@ COPY        etc/rsyslog.d/ /etc/rsyslog.d
 # logrotateとcron
 RUN         chown -R root.root /etc/logrotate.d && chmod 644 /etc/logrotate.d/* && \
             chown -R root.root /etc/cron.d && chmod 644 /etc/cron.d/*
-ENTRYPOINT  ["/usr/local/sh/system/mail-system.sh"]
+ENTRYPOINT  ["/usr/local/sh/system/imap-system.sh"]
