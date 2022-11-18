@@ -2,8 +2,8 @@
 
 
 # ユーザーアカウントの作成
-if [[ -r /usr/local/etc/users.txt ]]; then
-    /usr/local/sh/mail/users_add.sh /usr/local/etc/users.txt
+if [[ -r /usr/local/etc/dovecot/users.txt ]]; then
+    /usr/local/sh/mail/users_add.sh /usr/local/etc/dovecot/users.txt
 fi
 
 # mailのシステムログの出力先を環境変数で切り替える
@@ -19,6 +19,6 @@ fi
 # supervisord
 # /usr/sbin/supervisord
 
-exec /sbin/init 
+exec /bin/systemd
 
 

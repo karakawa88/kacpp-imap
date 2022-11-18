@@ -2,9 +2,11 @@
 
 
 # ユーザーアカウントの作成
-if [[ -r /usr/local/etc/users.txt ]]; then
-    /usr/local/sh/mail/users_add.sh /usr/local/etc/users.txt
+if [[ -r /usr/local/etc/dovecot/users.txt ]]; then
+    /usr/local/sh/mail/users_add.sh /usr/local/etc/dovecot/users.txt
 fi
+
+sleep 2
 
 systemctl daemon-reload
 systemctl enable rsyslog

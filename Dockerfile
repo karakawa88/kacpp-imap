@@ -6,7 +6,7 @@ WORKDIR     /root
 ENV         DEBIAN_FORONTEND=noninteractive
 # dovecot環境変数
 # dovecot download URL: https://dovecot.org/releases/2.3/dovecot-2.3.14.tar.gz
-ENV         DOVECOT_VERSION=2.3.14
+ENV         DOVECOT_VERSION=2.3.19
 ENV         DOVECOT_SRC=dovecot-${DOVECOT_VERSION}
 ENV         DOVECOT_SRC_FILE=${DOVECOT_SRC}.tar.gz
 ENV         DOVECOT_URL="https://dovecot.org/releases/2.3/${DOVECOT_SRC_FILE}"
@@ -34,7 +34,7 @@ VOLUME      ["/home/mail_users", "/usr/local/etc"]
 ENV         SYSLOG_GID=110
 ENV         SYSLOG_UID=104
 # OpenDMARC環境変数
-ENV         DOVECOT_VERSION=2.3.14
+ENV         DOVECOT_VERSION=2.3.19
 ENV         DOVECOT_SRC=dovecot-${DOVECOT_VERSION}
 ENV         DOVECOT_DEST=${DOVECOT_SRC}
 ENV         DOVECOT_UID=996

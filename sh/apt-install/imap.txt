@@ -4,7 +4,7 @@ systemd
 rsyslog
 # PostgreSQL
 libpq5
-libpqxx-6.2
+libpqxx-6.4
 # MySQL
 default-mysql-client
 # dovecot
